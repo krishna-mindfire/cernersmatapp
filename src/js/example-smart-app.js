@@ -12,7 +12,7 @@
         var patient = smart.patient;
         var pt = patient.read();
         console.log(patient);
-        var obv = smart.patient.api.fetchAll({
+        var obv = patient.fetchAll({
                     type: 'Observation',
                     query: {
                       code: {
