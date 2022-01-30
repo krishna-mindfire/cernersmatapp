@@ -11,8 +11,7 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-        console.log(patient);
-        var obv = patient.api.fetchAll({
+        var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
                       code: {
@@ -116,7 +115,6 @@
   }
 
   window.drawVisualization = function(p) {
-    console.log('I am here');
     $('#holder').show();
     $('#loading').hide();
     $('#fname').html(p.fname);
