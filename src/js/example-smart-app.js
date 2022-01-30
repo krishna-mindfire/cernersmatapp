@@ -115,6 +115,7 @@
   }
 
   window.drawVisualization = function(p) {
+    console.log('I am here');
     $('#holder').show();
     $('#loading').hide();
     $('#fname').html(p.fname);
