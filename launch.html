@@ -19,7 +19,7 @@
     -->
 
     <!-- FHIR Client JS Library -->
-    <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
+    <script src='./lib/js/fhir-client-v0.1.12.js'></script>
 
     <!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
     <!-- https://github.com/cerner/fhir-client-cerner-additions -->
@@ -29,9 +29,9 @@
         'client_id': 'd954775d-ecee-42ce-9359-f0fce19b8f21',
         'scope':  'patient/Patient.read patient/Observation.read launch online_access openid profile',
         'iss' : 'https://launch.smarthealthit.org/v/r2/sim/eyJrIjoiMSIsImoiOiIxIn0/fhir',
-        'patientId': '5c41cecf-cf81-434f-9da7-e24e5a99dbc2'
+        //.'patientId': '5c41cecf-cf81-434f-9da7-e24e5a99dbc2'
         // 'response_type' : 'code',
-        // 'redirect_uri' : 'https://ui.com',
+        // 'redirect_uri' : 'https://ui.com', 
         // 'launch' : 'xyz123',
         // 'state' : '98wrghuwuogerg97',
         // 'aud': 'https://ehr/fhir'
