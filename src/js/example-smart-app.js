@@ -51,7 +51,7 @@
               p.lname = lname;
               
               
-              $.when(observation).done(function(obv) {
+              observation.then(function (obv){
                 console.log('obv');
                 console.log(obv);
                 var byCodes = smart.byCodes(obv, 'code');
