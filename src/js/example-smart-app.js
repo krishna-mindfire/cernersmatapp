@@ -27,7 +27,9 @@
         var obv = smart.patient.request("Observation");
         $.when(pt, obv).done(function(patient, obv){
           console.log(patient, obv);
-          console.log(patient.data);
+          patient.then(function (res){
+            console.log(res);
+          })
         }).fail(onError);
 
 //         $.when(pt, obv).done(function(patient, obv) {
