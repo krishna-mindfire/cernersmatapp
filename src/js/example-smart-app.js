@@ -26,7 +26,7 @@
 
         var obv = smart.patient.request("Observation");
         $.when(pt, obv).done(function(patientdata, obv){
-          console.log(patient, obv);
+          console.log(patientdata, obv);
           patientdata.then(function (patient){
                      
               var byCodes = smart.byCodes(obv, 'code');
