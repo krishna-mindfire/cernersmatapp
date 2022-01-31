@@ -52,6 +52,8 @@
               
               
               observation.then(function (obv){
+                console.log('obv');
+                console.log(obv);
                 var byCodes = smart.byCodes(obv, 'code');
                 var height = byCodes('8302-2');
                 p.height = getQuantityValueAndUnit(height[0]);
