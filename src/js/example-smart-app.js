@@ -56,6 +56,7 @@
                 console.log(obv);
                 var byCodes = smart.byCodes(obv, 'code');
                 var height = byCodes('8302-2');
+                console.log(height);
                 p.height = getQuantityValueAndUnit(height[0]);
               
               
