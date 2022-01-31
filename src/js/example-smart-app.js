@@ -33,7 +33,7 @@
 
           var fname = '';
           var lname = '';
-console.log(patient);
+console.log(patient.name);
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
