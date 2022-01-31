@@ -52,9 +52,10 @@
               
               
               observation.then(function (obv){
+                var height = byCodes('8302-2');
                 p.height = getQuantityValueAndUnit(height[0]);
               var byCodes = smart.byCodes(obv, 'code');
-              var height = byCodes('8302-2');
+              
               
               var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
               var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
