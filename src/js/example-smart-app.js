@@ -28,12 +28,15 @@
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
+          const { foo, bar }  = await patient.then(result => result.data);
+
+          console.log(foo, bar); 
+          
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
 
           var fname = '';
           var lname = '';
-          console.log(patient);
 console.log(patient.entry);
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
