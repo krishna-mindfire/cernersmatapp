@@ -26,10 +26,8 @@
 
         var obv = smart.patient.request("Observation");
         $.when(pt, obv).fail(onError);
-        const { foo, bar }  = await pt.then(result => result.data);
-        console.log(foo, bar);
+
         $.when(pt, obv).done(function(patient, obv) {
-         
           
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
