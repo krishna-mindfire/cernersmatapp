@@ -12,6 +12,7 @@
         var patient = smart.patient;
         var pt = patient.read();
         console.log(smart.patient.api);
+        var patient = 'https://launch.smarthealthit.org/v/r2/sim/eyJrIjoiMSIsImoiOiIxIn0/fhir/Patient/5c41cecf-cf81-434f-9da7-e24e5a99dbc2' 
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
