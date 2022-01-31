@@ -25,11 +25,13 @@
         //           });
 
         var obv = smart.patient.request("Observation");
-        $.when(pt, obv).done(function(patientdata, obv){
-          console.log(patientdata, obv);
+        $.when(pt, obv).done(function(patientdata, observation){
+
+          console.log(patientdata, observation);
+
           patientdata.then(function (patient){
                      
-              var byCodes = smart.byCodes(obv, 'code');
+              
               var gender = patient.gender;
 
               var fname = '';
@@ -39,20 +41,25 @@
                 fname = patient.name[0].given.join(' ');
                 lname = patient.name[0].family.join(' ');
               }
-              console.log(fname, lname, gender, byCodes)
-              var height = byCodes('8302-2');
-              var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
-              var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
-              var hdl = byCodes('2085-9');
-              var ldl = byCodes('2089-1');
+             // console.log(fname, lname, gender, byCodes)
+       
 
               var p = defaultPatient();
               p.birthdate = patient.birthDate;
               p.gender = gender;
               p.fname = fname;
               p.lname = lname;
-              p.height = getQuantityValueAndUnit(height[0]);
               
+              
+              observation.then(function (obv){
+                p.height = getQuantityValueAndUnit(height[0]);
+              var byCodes = smart.byCodes(obv, 'code');
+              var height = byCodes('8302-2');
+              
+              var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
+              var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
+              var hdl = byCodes('2085-9');
+              var ldl = byCodes('2089-1');
               if (typeof systolicbp != 'undefined')  {
                 p.systolicbp = systolicbp;
               }
@@ -63,6 +70,7 @@
 
               p.hdl = getQuantityValueAndUnit(hdl[0]);
               p.ldl = getQuantityValueAndUnit(ldl[0]);
+            });
               ret.resolve(p);
           })
         }).fail(onError);
